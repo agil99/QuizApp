@@ -22,10 +22,15 @@ def startOver():
     session.clear()
     return redirect(url_for('renderMain')) # url_for('renderMain') could be replaced with '/'
 
-@app.route('/page1')
+@app.route('/answerPage',methods=['GET','POST'])
 def renderAnswerPage():
-  #Check answer here
-    return render_template('answerPage.html')
+    #Check answer here
+    session["answer"] = request.form["answer"]
+    if session["answer"].lower() == "cliff burton":
+        reply = "You're not THAT dumb"
+    else:
+        reply = "You ARE that dumb"
+    return render_template('answerPage.html', response = reply)
     
 if __name__=="__main__":
-    app.run(debug=False)
+    app.run(debug=True)

@@ -5,9 +5,12 @@
 {% block content %}
   <h1>Home</h1>
 
-<p>Who was the origina bassist for Metallica?</p>
+  <p>Who was the original bassist for Metallica?</p>
 
-  <ul>
-    <li><a href="/page1">Get started</a></li
-  </ul>
+  <form action={{ url_for("renderAnswerPage") }} method="POST">
+    Answer:<br> 
+	<input type="text" name="answer">
+	<br>
+	<input type="submit" value="Submit">
+  </form>
 {% endblock %}
