@@ -23,7 +23,7 @@ def startOver():
     return redirect(url_for('renderMain')) # url_for('renderMain') could be replaced with '/'
 
 @app.route('/page1')
-def renderPage1():
+def renderAnswerPage():
   #Check answer here
     return render_template('answerPage.html')
     
