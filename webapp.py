@@ -26,10 +26,19 @@ def startOver():
 def renderAnswerPage():
     #Check answer here
     session["answer"] = request.form["answer"]
+    session["answer2"] = request.form["answer2"]
+    session["answer3"] = request.form["answer3"]
+    session["answer4"] = request.form["answer4"]
+    score = 0
     if session["answer"].lower() == "cliff burton":
-        reply = "You're not THAT dumb"
-    else:
-        reply = "You ARE that dumb"
+        score+=1
+    elif session["answer2"].lower() == "dave mustaine":
+        score+=1
+    elif session["answer3"].lower() == "ronnie james dio":
+        score+=1
+    elif session["answer4"].lower() == "scotland":
+        score+=1
+    reply = 'Your score is %d /5'%(score)
     return render_template('answerPage.html', response = reply)
     
 if __name__=="__main__":

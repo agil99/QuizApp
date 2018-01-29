@@ -4,13 +4,31 @@
 
 {% block content %}
   <h1>Home</h1>
-  <img src="static/metallica-bassist.jpg" alt="bassist">
+  
 
-  <p>Who was the original bassist for Metallica?</p>
+  <p></p>
 
   <form action={{ url_for("renderAnswerPage") }} method="POST">
-    Answer:<br> 
-	<input type="text" name="answer">
+    Answer:<br>
+	Who was the original bassist for Metallica?<br>
+	<img src="static/metallica-bassist.jpg" alt="bassist" width="200px" height="200px"><br>
+	Answer:<br>
+	<input type="text" name="answer1">
+	<br>
+	Who wrote "The Four Horsemen" on Metallica's Kill 'em All?<br>
+	<img src="static/kill-em-all.jpeg" alt="writer" width="200px" height="200px"><br>
+	Answer:<br>
+	<input type="text" name="answer2">
+	<br>
+	Who was the vocalist of Black Sabbath's album "Heaven and Hell"?<br>
+	<img src="static/heaven-and-hell.jpg" alt="vocalist" width="200px" height="200px"><br>
+	Answer:<br>
+	<input type="text" name="answer3">
+	<br>
+	Where is the pirate metal band "Alestorm" from?<br>
+	<img src="static/alestorm.jpg" alt="band" width="200px" height="200px"><br>
+	Answer:<br>
+	<input type="text" name="answer4">
 	<br>
 	<input type="submit" value="Submit">
   </form>
