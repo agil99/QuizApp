@@ -19,7 +19,6 @@ def renderMain():
 @app.route('/startOver')
 def startOver():
     #clear variable values and create a new session
-    session.clear()
     return redirect(url_for('renderMain')) # url_for('renderMain') could be replaced with '/'
 
 @app.route('/answerPage',methods=['GET','POST'])
@@ -32,14 +31,17 @@ def renderAnswerPage():
     score = 0
     if session["answer1"].lower() == "cliff burton":
         score+=1
-    if session["answer2"].lower() == "dave mustaine":
+    if session["answer2"].lower() == "the ooz":
         score+=1
     if session["answer3"].lower() == "ronnie james dio":
         score+=1
     if session["answer4"].lower() == "scotland":
         score+=1
-    reply = 'Your score is %d /4'%(score)
-    return render_template('answerPage.html', response = reply)
+    if "highScore" not in session:
+        session["highScore"] = score
+    elif score > session["highScore"]:
+        session["highScore"] = score
+    return render_template('answerPage.html', currentScore = score, highScore = session["highScore"])
     
 if __name__=="__main__":
     app.run(debug=True)
